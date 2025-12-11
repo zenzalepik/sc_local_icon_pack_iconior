@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iconior CDN - Daftar Ikon & Pencarian Real-time</title>
-    <link rel="stylesheet" href="https://cdn.iconior.com/icons/all.css">
+    <title>Ikon CDN - Daftar Ikon & Pencarian Real-time</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,20 +13,20 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: #f5f7fa;
             color: #333;
             line-height: 1.6;
             padding-bottom: 50px;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         header {
             background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             color: white;
@@ -35,30 +35,30 @@
             margin-bottom: 40px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
         }
-        
+
         header p {
             font-size: 1.1rem;
             opacity: 0.9;
             max-width: 700px;
             margin: 0 auto;
         }
-        
-        .iconior-logo {
-            font-size: 2rem;
+
+        .icon-logo {
+            font-size: 2.5rem;
             margin-bottom: 15px;
             display: inline-block;
             background: rgba(255, 255, 255, 0.2);
-            width: 70px;
-            height: 70px;
-            line-height: 70px;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
             border-radius: 50%;
         }
-        
+
         .search-section {
             background: white;
             padding: 25px;
@@ -66,12 +66,12 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             margin-bottom: 30px;
         }
-        
+
         .search-box {
             display: flex;
             margin-bottom: 15px;
         }
-        
+
         .search-box input {
             flex: 1;
             padding: 15px 20px;
@@ -80,12 +80,12 @@
             border-radius: 8px 0 0 8px;
             transition: border-color 0.3s;
         }
-        
+
         .search-box input:focus {
             outline: none;
             border-color: #6a11cb;
         }
-        
+
         .search-box button {
             background: #6a11cb;
             color: white;
@@ -96,25 +96,125 @@
             font-size: 1.1rem;
             transition: background 0.3s;
         }
-        
+
         .search-box button:hover {
             background: #5a0db3;
         }
-        
+
         .search-info {
             display: flex;
             justify-content: space-between;
             color: #666;
             font-size: 0.95rem;
         }
-        
+
+        /* Tab Categories Styles */
+        .tabs-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e1e5eb;
+            scrollbar-width: thin;
+        }
+
+        .tabs-header::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .tabs-header::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .tabs-header::-webkit-scrollbar-thumb {
+            background: #6a11cb;
+            border-radius: 10px;
+        }
+
+        .tab-button {
+            background: transparent;
+            border: 2px solid transparent;
+            color: #666;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+
+        .tab-button i {
+            font-size: 1.1rem;
+        }
+
+        .tab-button:hover {
+            background: rgba(106, 17, 203, 0.05);
+            color: #6a11cb;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(106, 17, 203, 0.3);
+        }
+
+        .tab-badge {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .tab-button:not(.active) .tab-badge {
+            background: #e1e5eb;
+            color: #666;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .icons-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 20px;
             margin-bottom: 40px;
         }
-        
+
         .icon-card {
             background: white;
             border-radius: 10px;
@@ -128,38 +228,38 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .icon-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .icon-card i {
             font-size: 2.5rem;
             color: #6a11cb;
             margin-bottom: 15px;
         }
-        
+
         .icon-name {
             font-size: 0.9rem;
             color: #555;
             word-break: break-word;
             font-weight: 500;
         }
-        
+
         .no-results {
             text-align: center;
             padding: 50px 20px;
             grid-column: 1 / -1;
             color: #777;
         }
-        
+
         .no-results i {
             font-size: 3rem;
             color: #ccc;
             margin-bottom: 20px;
         }
-        
+
         .instructions {
             background: white;
             padding: 25px;
@@ -167,13 +267,13 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             margin-top: 30px;
         }
-        
+
         .instructions h3 {
             color: #6a11cb;
             margin-bottom: 15px;
             font-size: 1.3rem;
         }
-        
+
         .instructions code {
             background: #f5f7fa;
             padding: 3px 8px;
@@ -182,7 +282,7 @@
             color: #d63384;
             font-size: 0.9rem;
         }
-        
+
         .instructions pre {
             background: #2d3748;
             color: #e2e8f0;
@@ -192,7 +292,7 @@
             margin: 15px 0;
             font-size: 0.9rem;
         }
-        
+
         .icon-copied {
             position: fixed;
             bottom: 20px;
@@ -208,50 +308,68 @@
             display: none;
             animation: fadeInUp 0.3s ease-out;
         }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translate(-50%, 20px);
             }
+
             to {
                 opacity: 1;
                 transform: translate(-50%, 0);
             }
         }
-        
+
         footer {
             text-align: center;
             margin-top: 40px;
             color: #777;
             font-size: 0.9rem;
         }
-        
+
         @media (max-width: 768px) {
             .icons-container {
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             }
-            
+
             header h1 {
                 font-size: 2rem;
             }
+
+            .tabs-header {
+                scrollbar-width: none;
+            }
+
+            .tabs-header::-webkit-scrollbar {
+                display: none;
+            }
+
+            .tab-button {
+                padding: 10px 18px;
+                font-size: 0.85rem;
+            }
+
+            .tab-button i {
+                font-size: 1rem;
+            }
         }
-        
+
         @media (max-width: 480px) {
             .icons-container {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
                 gap: 15px;
             }
-            
+
             .search-box {
                 flex-direction: column;
             }
-            
+
             .search-box input {
                 border-radius: 8px;
                 margin-bottom: 10px;
             }
-            
+
             .search-box button {
                 border-radius: 8px;
                 padding: 15px;
@@ -259,21 +377,23 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
-            <div class="iconior-logo">
+            <div class="icon-logo">
                 <i class="fas fa-icons"></i>
             </div>
-            <h1>Iconior CDN - Daftar Ikon</h1>
-            <p>Telusuri seluruh koleksi ikon dari Iconior CDN. Klik pada ikon untuk menyalin kode HTML.</p>
+            <h1>Font Awesome CDN - Daftar Ikon</h1>
+            <p>Telusuri koleksi ikon dari Font Awesome CDN. Klik pada ikon untuk menyalin kode HTML.</p>
         </div>
     </header>
-    
+
     <main class="container">
         <section class="search-section">
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Cari ikon berdasarkan nama (contoh: home, user, star)...">
+                <input type="text" id="searchInput"
+                    placeholder="Cari ikon berdasarkan nama (contoh: home, user, star)...">
                 <button id="searchButton"><i class="fas fa-search"></i> Cari</button>
             </div>
             <div class="search-info">
@@ -281,151 +401,389 @@
                 <span id="searchHelp">Tekan Enter untuk mencari</span>
             </div>
         </section>
-        
+
+        <!-- Tabs Container for Categories -->
+        <div class="tabs-container">
+            <div class="tabs-header" id="tabsHeader">
+                <button class="tab-button active" data-category="all">
+                    <i class="fas fa-th"></i>
+                    <span>Semua</span>
+                    <span class="tab-badge" id="badge-all">0</span>
+                </button>
+                <button class="tab-button" data-category="solid">
+                    <i class="fas fa-star"></i>
+                    <span>Solid</span>
+                    <span class="tab-badge" id="badge-solid">0</span>
+                </button>
+                <button class="tab-button" data-category="regular">
+                    <i class="far fa-star"></i>
+                    <span>Regular</span>
+                    <span class="tab-badge" id="badge-regular">0</span>
+                </button>
+                <button class="tab-button" data-category="brands">
+                    <i class="fab fa-font-awesome"></i>
+                    <span>Brands</span>
+                    <span class="tab-badge" id="badge-brands">0</span>
+                </button>
+                <button class="tab-button" data-category="interface">
+                    <i class="fas fa-desktop"></i>
+                    <span>Interface</span>
+                    <span class="tab-badge" id="badge-interface">0</span>
+                </button>
+                <button class="tab-button" data-category="media">
+                    <i class="fas fa-photo-video"></i>
+                    <span>Media</span>
+                    <span class="tab-badge" id="badge-media">0</span>
+                </button>
+                <button class="tab-button" data-category="business">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Business</span>
+                    <span class="tab-badge" id="badge-business">0</span>
+                </button>
+                <button class="tab-button" data-category="social">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Social</span>
+                    <span class="tab-badge" id="badge-social">0</span>
+                </button>
+            </div>
+        </div>
+
         <section id="iconsSection">
             <div class="icons-container" id="iconsContainer">
                 <!-- Ikon akan ditampilkan di sini -->
             </div>
         </section>
-        
+
         <section class="instructions">
-            <h3><i class="fas fa-info-circle"></i> Cara Menggunakan Iconior CDN</h3>
-            <p>Untuk menggunakan ikon dari Iconior CDN, tambahkan kode berikut di bagian <code>&lt;head&gt;</code> dokumen HTML Anda:</p>
-            <pre>&lt;link rel="stylesheet" href="https://cdn.iconior.com/icons/all.css"&gt;</pre>
+            <h3><i class="fas fa-info-circle"></i> Cara Menggunakan Font Awesome CDN</h3>
+            <p>Untuk menggunakan ikon dari Font Awesome CDN, tambahkan kode berikut di bagian <code>&lt;head&gt;</code>
+                dokumen HTML Anda:</p>
+            <pre>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;</pre>
             <p>Kemudian gunakan kode ikon seperti contoh berikut:</p>
-            <pre>&lt;i class="ic-home"&gt;&lt;/i&gt; <!-- Ikon Home -->
-&lt;i class="ic-user"&gt;&lt;/i&gt; <!-- Ikon User -->
-&lt;i class="ic-star"&gt;&lt;/i&gt; <!-- Ikon Star --></pre>
-            <p>Untuk ukuran dan warna yang berbeda, Anda dapat menambahkan kelas CSS atau menggunakan gaya inline.</p>
+            <pre>&lt;i class="fas fa-home"&gt;&lt;/i&gt; <!-- Ikon Home -->
+&lt;i class="fas fa-user"&gt;&lt;/i&gt; <!-- Ikon User -->
+&lt;i class="fas fa-star"&gt;&lt;/i&gt; <!-- Ikon Star --></pre>
+            <p>Untuk ikon solid gunakan <code>fas</code>, untuk regular gunakan <code>far</code>, untuk brands gunakan
+                <code>fab</code>.
+            </p>
         </section>
     </main>
-    
+
     <div class="icon-copied" id="iconCopied">
         Kode ikon berhasil disalin ke clipboard!
     </div>
-    
+
     <footer class="container">
-        <p>&copy; 2023 Iconior CDN Ikon Viewer | Dibuat dengan <i class="fas fa-heart" style="color: #e74c3c;"></i> untuk pengembang</p>
+        <p>&copy; 2023 Ikon CDN Viewer | Dibuat dengan <i class="fas fa-heart" style="color: #e74c3c;"></i> untuk
+            pengembang</p>
     </footer>
 
     <script>
-        // Daftar ikon Iconior yang lengkap
-        // Catatan: Ini adalah daftar contoh. Untuk daftar lengkap, Anda perlu mengacu pada dokumentasi resmi Iconior.
-        const iconiorIcons = [
-            "ic-home", "ic-user", "ic-star", "ic-heart", "ic-search", "ic-settings",
-            "ic-bell", "ic-mail", "ic-phone", "ic-camera", "ic-image", "ic-video",
-            "ic-music", "mic-file", "ic-folder", "ic-trash", "ic-download", "ic-upload",
-            "ic-cloud", "ic-wifi", "ic-battery", "ic-chart", "ic-calendar", "ic-clock",
-            "ic-map", "ic-navigation", "ic-car", "ic-bus", "ic-plane", "ic-train",
-            "ic-ship", "ic-bicycle", "ic-walk", "ic-run", "ic-swim", "ic-game",
-            "ic-book", "ic-pen", "ic-pencil", "ic-brush", "ic-palette", "ic-tag",
-            "ic-cart", "ic-credit-card", "ic-wallet", "ic-calculator", "ic-filter",
-            "ic-grid", "ic-list", "ic-menu", "ic-arrow-up", "ic-arrow-down", "ic-arrow-left",
-            "ic-arrow-right", "ic-chevron-up", "ic-chevron-down", "ic-chevron-left",
-            "ic-chevron-right", "ic-plus", "ic-minus", "ic-close", "ic-check", "ic-info",
-            "ic-warning", "ic-error", "ic-question", "ic-lock", "ic-unlock", "ic-eye",
-            "ic-eye-off", "ic-zoom-in", "ic-zoom-out", "ic-refresh", "ic-share", "ic-print",
-            "ic-save", "ic-edit", "ic-copy", "ic-cut", "ic-paste", "ic-bold", "ic-italic",
-            "ic-underline", "ic-link", "ic-external-link", "ic-code", "ic-css", "ic-html",
-            "ic-js", "ic-database", "ic-server", "ic-network", "ic-cpu", "ic-memory",
-            "ic-mouse", "ic-keyboard", "ic-monitor", "ic-printer", "ic-scanner", "ic-headphones",
-            "ic-microphone", "ic-speaker", "ic-volume", "ic-mute", "ic-play", "ic-pause",
-            "ic-stop", "ic-rewind", "ic-forward", "ic-skip-back", "ic-skip-forward",
-            "ic-record", "ic-repeat", "ic-shuffle", "ic-cast", "ic-airplay", "ic-bluetooth",
-            "ic-usb", "ic-hdmi", "ic-power", "ic-brightness", "ic-contrast", "ic-temperature",
-            "ic-weather-sun", "ic-weather-cloud", "ic-weather-rain", "ic-weather-snow",
-            "ic-weather-wind", "ic-weather-night", "ic-umbrella", "ic-drop", "ic-fire",
-            "ic-leaf", "ic-tree", "ic-flower", "ic-animal", "ic-paw", "ic-face-smile",
-            "ic-face-sad", "ic-face-neutral", "ic-face-angry", "ic-face-laugh", "ic-medical",
-            "ic-hospital", "ic-pill", "ic-stethoscope", "ic-syringe", "ic-bandage",
-            "ic-security", "ic-shield", "ic-police", "ic-firefighter", "ic-ambulance",
-            "ic-tool", "ic-wrench", "ic-screwdriver", "ic-hammer", "ic-ruler", "ic-measure",
-            "ic-light", "ic-lamp", "ic-flashlight", "ic-candle", "ic-flag", "ic-trophy",
-            "ic-medal", "ic-crown", "ic-gift", "ic-balloon", "ic-cake", "ic-christmas",
-            "ic-easter", "ic-halloween", "ic-new-year", "ic-birthday", "ic-wedding"
+        // Daftar ikon Font Awesome dengan kategori
+        const fontAwesomeIcons = [
+            // Solid Icons - Interface
+            { icon: "fas fa-home", category: ["solid", "interface"] },
+            { icon: "fas fa-user", category: ["solid", "interface"] },
+            { icon: "fas fa-star", category: ["solid", "interface"] },
+            { icon: "fas fa-heart", category: ["solid", "interface"] },
+            { icon: "fas fa-search", category: ["solid", "interface"] },
+            { icon: "fas fa-cog", category: ["solid", "interface"] },
+            { icon: "fas fa-bell", category: ["solid", "interface"] },
+            { icon: "fas fa-envelope", category: ["solid", "interface"] },
+            { icon: "fas fa-phone", category: ["solid", "interface"] },
+            { icon: "fas fa-bars", category: ["solid", "interface"] },
+            { icon: "fas fa-th", category: ["solid", "interface"] },
+            { icon: "fas fa-list", category: ["solid", "interface"] },
+            { icon: "fas fa-filter", category: ["solid", "interface"] },
+            { icon: "fas fa-download", category: ["solid", "interface"] },
+            { icon: "fas fa-upload", category: ["solid", "interface"] },
+            { icon: "fas fa-trash", category: ["solid", "interface"] },
+            { icon: "fas fa-edit", category: ["solid", "interface"] },
+            { icon: "fas fa-save", category: ["solid", "interface"] },
+            { icon: "fas fa-print", category: ["solid", "interface"] },
+            { icon: "fas fa-eye", category: ["solid", "interface"] },
+            { icon: "fas fa-eye-slash", category: ["solid", "interface"] },
+            { icon: "fas fa-lock", category: ["solid", "interface"] },
+            { icon: "fas fa-unlock", category: ["solid", "interface"] },
+            { icon: "fas fa-check", category: ["solid", "interface"] },
+            { icon: "fas fa-times", category: ["solid", "interface"] },
+            { icon: "fas fa-plus", category: ["solid", "interface"] },
+            { icon: "fas fa-minus", category: ["solid", "interface"] },
+            { icon: "fas fa-arrow-up", category: ["solid", "interface"] },
+            { icon: "fas fa-arrow-down", category: ["solid", "interface"] },
+            { icon: "fas fa-arrow-left", category: ["solid", "interface"] },
+            { icon: "fas fa-arrow-right", category: ["solid", "interface"] },
+
+            // Solid Icons - Media
+            { icon: "fas fa-camera", category: ["solid", "media"] },
+            { icon: "fas fa-image", category: ["solid", "media"] },
+            { icon: "fas fa-video", category: ["solid", "media"] },
+            { icon: "fas fa-music", category: ["solid", "media"] },
+            { icon: "fas fa-play", category: ["solid", "media"] },
+            { icon: "fas fa-pause", category: ["solid", "media"] },
+            { icon: "fas fa-stop", category: ["solid", "media"] },
+            { icon: "fas fa-forward", category: ["solid", "media"] },
+            { icon: "fas fa-backward", category: ["solid", "media"] },
+            { icon: "fas fa-volume-up", category: ["solid", "media"] },
+            { icon: "fas fa-volume-mute", category: ["solid", "media"] },
+            { icon: "fas fa-headphones", category: ["solid", "media"] },
+            { icon: "fas fa-microphone", category: ["solid", "media"] },
+
+            // Solid Icons - Business
+            { icon: "fas fa-chart-bar", category: ["solid", "business"] },
+            { icon: "fas fa-calendar", category: ["solid", "business"] },
+            { icon: "fas fa-clock", category: ["solid", "business"] },
+            { icon: "fas fa-credit-card", category: ["solid", "business"] },
+            { icon: "fas fa-wallet", category: ["solid", "business"] },
+            { icon: "fas fa-calculator", category: ["solid", "business"] },
+            { icon: "fas fa-briefcase", category: ["solid", "business"] },
+            { icon: "fas fa-shopping-cart", category: ["solid", "business"] },
+            { icon: "fas fa-tag", category: ["solid", "business"] },
+            { icon: "fas fa-gift", category: ["solid", "business"] },
+            { icon: "fas fa-file", category: ["solid", "business"] },
+            { icon: "fas fa-folder", category: ["solid", "business"] },
+
+            // Solid Icons - Social & Communication
+            { icon: "fas fa-share-alt", category: ["solid", "social"] },
+            { icon: "fas fa-comment", category: ["solid", "social"] },
+            { icon: "fas fa-comments", category: ["solid", "social"] },
+            { icon: "fas fa-thumbs-up", category: ["solid", "social"] },
+            { icon: "fas fa-thumbs-down", category: ["solid", "social"] },
+
+            // Regular Icons - Interface
+            { icon: "far fa-star", category: ["regular", "interface"] },
+            { icon: "far fa-heart", category: ["regular", "interface"] },
+            { icon: "far fa-bookmark", category: ["regular", "interface"] },
+            { icon: "far fa-flag", category: ["regular", "interface"] },
+            { icon: "far fa-bell", category: ["regular", "interface"] },
+            { icon: "far fa-user", category: ["regular", "interface"] },
+            { icon: "far fa-check-circle", category: ["regular", "interface"] },
+            { icon: "far fa-times-circle", category: ["regular", "interface"] },
+            { icon: "far fa-question-circle", category: ["regular", "interface"] },
+            { icon: "far fa-info-circle", category: ["regular", "interface"] },
+            { icon: "far fa-plus-square", category: ["regular", "interface"] },
+            { icon: "far fa-minus-square", category: ["regular", "interface"] },
+
+            // Regular Icons - Media
+            { icon: "far fa-image", category: ["regular", "media"] },
+            { icon: "far fa-images", category: ["regular", "media"] },
+            { icon: "far fa-play-circle", category: ["regular", "media"] },
+            { icon: "far fa-pause-circle", category: ["regular", "media"] },
+            { icon: "far fa-stop-circle", category: ["regular", "media"] },
+
+            // Regular Icons - Business
+            { icon: "far fa-file", category: ["regular", "business"] },
+            { icon: "far fa-file-alt", category: ["regular", "business"] },
+            { icon: "far fa-folder", category: ["regular", "business"] },
+            { icon: "far fa-calendar", category: ["regular", "business"] },
+            { icon: "far fa-clock", category: ["regular", "business"] },
+            { icon: "far fa-credit-card", category: ["regular", "business"] },
+
+            // Regular Icons - Social
+            { icon: "far fa-comment", category: ["regular", "social"] },
+            { icon: "far fa-comments", category: ["regular", "social"] },
+            { icon: "far fa-envelope", category: ["regular", "social"] },
+            { icon: "far fa-thumbs-up", category: ["regular", "social"] },
+            { icon: "far fa-thumbs-down", category: ["regular", "social"] },
+
+            // Brand Icons
+            { icon: "fab fa-facebook", category: ["brands", "social"] },
+            { icon: "fab fa-twitter", category: ["brands", "social"] },
+            { icon: "fab fa-instagram", category: ["brands", "social"] },
+            { icon: "fab fa-youtube", category: ["brands", "social"] },
+            { icon: "fab fa-linkedin", category: ["brands", "social"] },
+            { icon: "fab fa-github", category: ["brands", "social"] },
+            { icon: "fab fa-whatsapp", category: ["brands", "social"] },
+            { icon: "fab fa-telegram", category: ["brands", "social"] },
+            { icon: "fab fa-discord", category: ["brands", "social"] },
+            { icon: "fab fa-slack", category: ["brands", "social"] },
+            { icon: "fab fa-tiktok", category: ["brands", "social"] },
+            { icon: "fab fa-pinterest", category: ["brands", "social"] },
+            { icon: "fab fa-reddit", category: ["brands", "social"] },
+            { icon: "fab fa-spotify", category: ["brands", "social"] },
+            { icon: "fab fa-apple", category: ["brands"] },
+            { icon: "fab fa-android", category: ["brands"] },
+            { icon: "fab fa-windows", category: ["brands"] },
+            { icon: "fab fa-linux", category: ["brands"] },
+            { icon: "fab fa-html5", category: ["brands"] },
+            { icon: "fab fa-css3-alt", category: ["brands"] },
+            { icon: "fab fa-js", category: ["brands"] },
+            { icon: "fab fa-react", category: ["brands"] },
+            { icon: "fab fa-vue", category: ["brands"] },
+            { icon: "fab fa-angular", category: ["brands"] },
+            { icon: "fab fa-node", category: ["brands"] },
+            { icon: "fab fa-python", category: ["brands"] },
         ];
-        
-        // Variabel untuk menyimpan semua ikon yang difilter
-        let filteredIcons = [...iconiorIcons];
-        
+
+        // Variabel untuk menyimpan state
+        let filteredIcons = [...fontAwesomeIcons];
+        let currentCategory = "all";
+
         // Elemen DOM
         const iconsContainer = document.getElementById('iconsContainer');
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
         const countElement = document.getElementById('count');
         const iconCopiedElement = document.getElementById('iconCopied');
-        
+        const tabButtons = document.querySelectorAll('.tab-button');
+
+        // Fungsi untuk menghitung jumlah ikon per kategori
+        function updateCategoryBadges() {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+
+            // Hitung untuk setiap kategori
+            const counts = {
+                all: 0,
+                solid: 0,
+                regular: 0,
+                brands: 0,
+                interface: 0,
+                media: 0,
+                business: 0,
+                social: 0
+            };
+
+            fontAwesomeIcons.forEach(iconData => {
+                const matchesSearch = searchTerm === '' ||
+                    iconData.icon.toLowerCase().includes(searchTerm);
+
+                if (matchesSearch) {
+                    counts.all++;
+                    iconData.category.forEach(cat => {
+                        if (counts.hasOwnProperty(cat)) {
+                            counts[cat]++;
+                        }
+                    });
+                }
+            });
+
+            // Update badge untuk setiap kategori
+            Object.keys(counts).forEach(category => {
+                const badge = document.getElementById(`badge-${category}`);
+                if (badge) {
+                    badge.textContent = counts[category];
+                }
+            });
+        }
+
         // Fungsi untuk menampilkan ikon
         function displayIcons(icons) {
             iconsContainer.innerHTML = '';
-            
+
             if (icons.length === 0) {
                 iconsContainer.innerHTML = `
                     <div class="no-results">
                         <i class="fas fa-search"></i>
                         <h3>Tidak ada ikon yang ditemukan</h3>
-                        <p>Coba kata kunci lain seperti "home", "user", atau "star"</p>
+                        <p>Coba kata kunci lain atau pilih kategori berbeda</p>
                     </div>
                 `;
                 countElement.textContent = '0';
                 return;
             }
-            
-            icons.forEach(icon => {
+
+            icons.forEach(iconData => {
                 const iconCard = document.createElement('div');
                 iconCard.className = 'icon-card';
                 iconCard.innerHTML = `
-                    <i class="${icon}"></i>
-                    <div class="icon-name">${icon}</div>
+                    <i class="${iconData.icon}"></i>
+                    <div class="icon-name">${iconData.icon}</div>
                 `;
-                
+
                 // Tambahkan event listener untuk menyalin kode ikon
                 iconCard.addEventListener('click', () => {
-                    copyToClipboard(`<i class="${icon}"></i>`);
+                    copyToClipboard(`<i class="${iconData.icon}"></i>`);
                     showCopiedNotification();
                 });
-                
+
                 iconsContainer.appendChild(iconCard);
             });
-            
+
             countElement.textContent = icons.length;
         }
-        
-        // Fungsi untuk memfilter ikon berdasarkan pencarian
+
+        // Fungsi untuk memfilter ikon berdasarkan pencarian dan kategori
         function filterIcons() {
             const searchTerm = searchInput.value.trim().toLowerCase();
-            
-            if (searchTerm === '') {
-                filteredIcons = [...iconiorIcons];
-            } else {
-                filteredIcons = iconiorIcons.filter(icon => 
-                    icon.toLowerCase().includes(searchTerm)
-                );
-            }
-            
+
+            filteredIcons = fontAwesomeIcons.filter(iconData => {
+                // Filter berdasarkan kategori
+                const categoryMatch = currentCategory === "all" ||
+                    iconData.category.includes(currentCategory);
+
+                // Filter berdasarkan pencarian
+                const searchMatch = searchTerm === '' ||
+                    iconData.icon.toLowerCase().includes(searchTerm);
+
+                return categoryMatch && searchMatch;
+            });
+
             displayIcons(filteredIcons);
+            updateCategoryBadges();
         }
-        
+
+        // Fungsi untuk switch tab
+        function switchTab(category) {
+            currentCategory = category;
+
+            // Update tampilan tab buttons
+            tabButtons.forEach(btn => {
+                if (btn.dataset.category === category) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Filter dan tampilkan ikon
+            filterIcons();
+        }
+
         // Fungsi untuk menyalin teks ke clipboard
         function copyToClipboard(text) {
+            // Metode modern menggunakan Clipboard API
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    console.log('Kode ikon disalin: ' + text);
+                }, (err) => {
+                    console.error('Gagal menyalin: ', err);
+                    fallbackCopyToClipboard(text);
+                });
+            } else {
+                // Fallback untuk browser lama
+                fallbackCopyToClipboard(text);
+            }
+        }
+
+        // Fallback untuk menyalin teks ke clipboard
+        function fallbackCopyToClipboard(text) {
             const textarea = document.createElement('textarea');
             textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
             document.body.appendChild(textarea);
             textarea.select();
-            document.execCommand('copy');
+
+            try {
+                document.execCommand('copy');
+                console.log('Kode ikon disalin (fallback): ' + text);
+            } catch (err) {
+                console.error('Gagal menyalin (fallback): ', err);
+            }
+
             document.body.removeChild(textarea);
         }
-        
+
         // Fungsi untuk menampilkan notifikasi ikon disalin
         function showCopiedNotification() {
             iconCopiedElement.style.display = 'block';
-            
+
             setTimeout(() => {
                 iconCopiedElement.style.display = 'none';
             }, 2000);
         }
-        
-        // Event listeners
+
+        // Event listeners untuk pencarian
         searchInput.addEventListener('input', filterIcons);
         searchButton.addEventListener('click', filterIcons);
         searchInput.addEventListener('keyup', (e) => {
@@ -433,11 +791,24 @@
                 filterIcons();
             }
         });
-        
+
+        // Event listeners untuk tab buttons
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.dataset.category;
+                switchTab(category);
+            });
+        });
+
         // Inisialisasi: tampilkan semua ikon saat halaman dimuat
         document.addEventListener('DOMContentLoaded', () => {
-            displayIcons(iconiorIcons);
+            displayIcons(fontAwesomeIcons);
+            updateCategoryBadges();
+
+            // Fokus ke input pencarian
+            searchInput.focus();
         });
     </script>
 </body>
+
 </html>
